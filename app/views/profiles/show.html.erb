@@ -1,0 +1,11 @@
+<div id="top">
+<div id="email">
+<%= @profile.email %><br>
+<%= image_tag @profile.photo.url(:thumb) %>
+
+</div>
+
+
+<%= link_to "update",edit_profile_path(current_user.id) %>
+<%= link_to "<< Back to Articles List", reviews_path %>
+</div>

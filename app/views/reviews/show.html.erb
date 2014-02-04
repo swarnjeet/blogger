@@ -1,0 +1,27 @@
+<div class="index">
+<div id="head">
+<%= @reviews.title %><br>
+</div>
+<div id="description">
+<%= @reviews.description %><br>
+
+</div>
+<% @all_comment = @reviews.comments.all %>
+<% @all_comment.each do|t| %>
+<div id="comments">
+
+<%= t.comment %>
+<div id="user">
+<%=t.user.email %>
+</div>
+</div>
+<% end %>
+
+</div>
+
+<% @comment = Comment.new %>
+<% if user_signed_in? %>
+
+<%= render partial: 'comments/comment_form' %>
+<% end %>
+<%= link_to "<< Back to Articles List", reviews_path %>

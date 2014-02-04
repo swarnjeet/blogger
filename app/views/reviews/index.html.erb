@@ -1,0 +1,59 @@
+<div class="container">
+
+	<% @review.each do |t| %>
+<div class="index">
+
+<div id= "head">
+<%= t.title %>
+</div>
+<div id="description">
+<%= t.description %>
+<% if user_signed_in? %>
+
+<div id="comment">
+<%= link_to "comment",review_path(:id => t.id) %>
+
+</div>
+<% end %>
+
+
+
+
+
+<% if user_signed_in? %>
+
+<% if t.user_id == (current_user.id).to_s %>
+<div id="delete">
+<%= link_to "delete",review_path(:id => t.id), method: :delete %>
+</div>
+<div id="edit">
+<%= link_to "edit",edit_review_path(:id => t.id) %>
+</div>
+<%end%>
+<%end%>
+</div>
+
+<% @all_comment = t.comments.all %>
+<% @all_comment.each do|f| %>
+<div  id="comments">
+<%= f.comment %>
+<div id="user">
+<%=f.user.email %>
+</div>
+<% if user_signed_in? %>
+<% if f.user.id== current_user.id %>
+<%= link_to "edit",edit_comment_path(:id => f.id) %>
+<%= link_to "delete",comment_path(:id => f.id) , method: :delete %>
+<% end%>
+<% end %>
+
+</div>
+<% end %>
+
+</div>
+
+<% end %>
+
+<div id="paginate"><%= will_paginate @review %></div>
+</div>
+

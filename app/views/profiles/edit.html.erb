@@ -1,0 +1,10 @@
+ <%= form_tag profile_path, method: :patch , :multipart => true  %>
+<%= label_tag :email %>
+<%= text_field_tag :email,current_user.email  %>
+
+
+<%= label_tag :photo %>
+
+<%=file_field_tag :photo %>
+<div class="actions">
+    <%= submit_tag %></div>

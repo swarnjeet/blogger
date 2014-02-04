@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Swarn</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="header">
+<div id="current_user">
+
+<% if user_signed_in? %>
+<div id ="signout">
+	<%= link_to "sign_out", destroy_user_session_path,method: :delete %>
+	</div>
+	<% end %>
+<% if user_signed_in? %>
+
+<%= link_to current_user.email,profile_path(current_user.id) %>
+ <%= link_to image_tag(current_user.photo.url(:thumb)) ,profile_path(current_user.id) %>
+
+<% end%>
+</div>
+
+<% if user_signed_in? %>
+<div id="article">
+
+
+<%= link_to "Create a New Article",new_review_path %>
+</div>
+
+<%end %>
+
+	
+	
+	<% if !user_signed_in? %>
+	<div id ="sign">
+
+	<%= link_to "sign_in",new_user_session_path %>
+	</div>
+<div id="sign_up">
+	<%= link_to "sign_up",new_user_registration_path %>
+	</div>
+	<% end %>
+	
+	</div>
+
+<%= yield %>
+
+</body>
+</html>
