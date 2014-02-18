@@ -2,49 +2,87 @@
 <html>
 <head>
   <title>Swarn</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.css" rel="stylesheet"/>
+ <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet"/>
+
+ <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+ <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+ <%= csrf_meta_tags %>
+ <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+ <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.js" type="text/javascript"></script>
+
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
-<body>
-<div id="header">
-<div id="current_user">
+<body  background="http://www.finewallpaperss.com/wp-content/uploads/2013/03/white-light-plain-background-wallpapers.jpg">
 
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container1">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+ 
+      <!-- Be sure to leave the brand out there if you want it shown -->
+      
+ 
+      <!-- Everything you want hidden at 940px or less, place within here -->
+      <div class="nav-collapse collapse">
+<ul class="nav">
+<li class="divider-vertical">
+ <%= link_to "home" ,reviews_path %>
+</li>
 <% if user_signed_in? %>
-<div id ="signout">
-	<%= link_to "sign_out", destroy_user_session_path,method: :delete %>
-	</div>
+	<li><%= link_to "sign_out", destroy_user_session_path,method: :delete %>
+	</li>
 	<% end %>
+	
 <% if user_signed_in? %>
-
+<li>
 <%= link_to current_user.email,profile_path(current_user.id) %>
- <%= link_to image_tag(current_user.photo.url(:thumb)) ,profile_path(current_user.id) %>
-
+</li>
+<li class="divider-vertical">
+<div id="photo">
+ <%= link_to image_tag(current_user.user_image(:thumb) ,:size =>"50x50") ,profile_path(current_user.id) %>
+ </div>
+</li>
 <% end%>
-</div>
+
+
 
 <% if user_signed_in? %>
-<div id="article">
+<li class="divider-vertical">
 
 
 <%= link_to "Create a New Article",new_review_path %>
-</div>
+</li>
 
 <%end %>
 
-	
-	
-	<% if !user_signed_in? %>
-	<div id ="sign">
 
-	<%= link_to "sign_in",new_user_session_path %>
-	</div>
-<div id="sign_up">
-	<%= link_to "sign_up",new_user_registration_path %>
-	</div>
-	<% end %>
 	
+	                       <% if !user_signed_in? %>
+	
+<li class="divider-vertical">
+	                        <%= link_to "sign_in",new_user_session_path %>
+	</li>
+	<li class="divider-vertical">
+
+	                       <%= link_to "sign_up",new_user_registration_path %>
+	</li>
+	                     <% end %>
+	
+	</ul>
+	</div>
+	
+	</div>
+	</div>
 	</div>
 
 <%= yield %>

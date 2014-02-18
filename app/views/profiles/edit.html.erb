@@ -1,10 +1,89 @@
+<div class="container" >
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span5">
+      <%= image_tag @profile.user_image(:large) %>
+
+    </div>
+    <div class="span7">
+    <div id="form">
+
  <%= form_tag profile_path, method: :patch , :multipart => true  %>
-<%= label_tag :email %>
-<%= text_field_tag :email,current_user.email  %>
+ <div class="control-group">
+  <label class="control-label" for="inputIcon"><%= label_tag :name%></label>
+  <div class="controls">
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-edit"></i></span>
+       <%= text_field_tag :name ,current_user.name,class: 'span2',id: 'inputIcon',:size => 500%> 
+    </div>
+  </div>
+</div>
+ <div class="control-group">
+  <label class="control-label" for="inputIcon"><%= label_tag :email %></label>
+  <div class="controls">
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-envelope"></i></span>
+      <%= text_field_tag :email ,current_user.email,class: 'span2',id: 'inputIcon',:size => 600%> 
+      
+    </div>
+  </div>
+</div>
+<div class="control-group">
+  <label class="control-label" for="inputIcon"><%= label_tag :address %></label>
+  <div class="controls">
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-home icon-white"></i></span>
+      <%= text_field_tag :address ,current_user.address,class: 'span2',id: 'inputIcon',:size => 500%> 
+      
+    </div>
+  </div>
+</div>
+
+
 
 
 <%= label_tag :photo %>
 
 <%=file_field_tag :photo %>
+<%= label_tag :dob %>
+
+<%=text_field_tag :dob ,current_user.dob%>
+
+
+
+<% if @profile.errors.any? %>
+   <div id="error_explanation">
+     <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+   
+     <% @profile.errors.full_messages.each do |msg| %>
+       <br><%= msg %>
+     <% end %>
+   
+   </div>
+ <% end %>
+
+
 <div class="actions">
     <%= submit_tag %></div>
+</div>
+</div>
+     
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+  $(document).ready(function(){
+    $("#dob").datepicker();
+  })
+</script>

@@ -1,174 +1,35 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#sign{float :right;padding: 8px 20px;
-line-height: 20px;
-color: black;
-font-size: 14px;
-text-shadow: none;
-border: medium none;
-font-weight: 700;
-cursor: pointer;
-background-size:80px 60px;
-border:2px solid;
-border-radius:25px;
-background_color: grey;
-background: -webkit-linear-gradient(grey, white); 
-background: -o-linear-gradient(grey, white); 
-background: -moz-linear-gradient(grey, white);
-background: linear-gradient(grey, white); }
-#signout{float :right;padding: 5px 18px;
-line-height: 20px;
-color: black;
-font-size: 14px;
-text-shadow: none;
-border: medium none;
-font-weight: 700;
-cursor: pointer;
-background-size:80px 60px;
-border:2px solid;
-border-radius:25px;
-background_color: grey;
-background: -webkit-linear-gradient(grey, white); 
-background: -o-linear-gradient(grey, white); 
-background: -moz-linear-gradient(grey, white);
-background: linear-gradient(grey, white);}
-#header{height:80px;background-color: #7C7272;}
-#sign_up{float :right;padding: 8px 20px;
-line-height: 20px;
-color: black;
-font-size: 14px;
-text-shadow: none;
-border: medium none;
-font-weight: 700;
-cursor: pointer;
-background-size:80px 60px;
-border:2px solid;
-border-radius:25px;
-background_color: grey;
-background: -webkit-linear-gradient(grey, white); 
-background: -o-linear-gradient(grey, white); 
-background: -moz-linear-gradient(grey, white);
-background: linear-gradient(grey, white);}
-#header{height:40px;background-color: #E3E6E7;}
-
-#head{
-	font-family:'open sans';
-	font-style:bold;
-	font-weight:400;
-}
-.index{font-family: 'open sans';
-background: rgb(138, 182, 218);
-box-shadow: 5px 5px 0px #EBEBEB;
-width:50%; float: left;
-margin-bottom: 15px;
-width:100%;
-margin-right: 75px;
-margin-left: 75px;
-margin-top: 75px;
-width: 80%;
-margin-top: 75px;
-margin-left: 161px;
-
-}
-#head{padding: 10px 20px;
-background: #2E6074;
-color: #D3D9DA;
-font-weight: 300;
-font-family: 'open sans';
-border-bottom: 1px solid rgb(255, 255, 255);
-color: #D3D9DA;
-font-weight: 300;
-font-family: 'open sans';
-border-bottom: 1px solid white;
-text-align: center;
-font-size: 37px;}
-#description{font-family: 'open sans'; padding:20px 20px 20px 20px;
-font-weight: 300;
-padding-top: 78px;
-text-align: justify;
-padding-left: 45px;
-padding-right: 45px;
-}
-#comment{float :right;padding: 8px 20px;
-line-height: 20px;
-color: blue;
-font-size: 14px;
-text-shadow: none;
-border: medium none;
-font-weight: 700;
-cursor: pointer;
-background-size:80px 60px;
-border:2px solid;
-border-radius:25px;
-background_color: grey;
-background: -webkit-linear-gradient(grey, white); 
-background: -o-linear-gradient(grey, white); 
-background: -moz-linear-gradient(grey, white);
-background: linear-gradient(grey, white);}
-#comments{padding: 10px 20px;
-background: #E3E6E7;
-color: black;
-font-weight: 300;
-font-family: 'open sans';
-border-bottom: 1px solid rgb(255, 255, 255);}
-#user{float:right;}
+.hero-unit{padding:0px;
+background-color: white;}
+.container{
+	background-color: rgb(214, 229, 243);
+padding-bottom: 20px;
+margin-bottom: 20px;
+padding-left: 10px}
+.page-header{color: rgb(22, 137, 243);}
 #delete{float :left;padding: 8px 20px;
-line-height: 20px;
-color: black;
+
 font-size: 14px;
-text-shadow: none;
-border: medium none;
 font-weight: 700;
-cursor: pointer;
-background-size:80px 60px;
-border:2px solid;
-border-radius:25px;
-background_color: grey;
-background: -webkit-linear-gradient(grey, white); 
-background: -o-linear-gradient(grey, white); 
-background: -moz-linear-gradient(grey, white);
-background: linear-gradient(grey, white);}
+}
+
+
 #edit{float :left;padding: 8px 20px;
 line-height: 20px;
-color: black;
+
 font-size: 14px;
 text-shadow: none;
 border: medium none;
 font-weight: 700;
-cursor: pointer;
-background-size:80px 60px;
-border:2px solid;
-border-radius:25px;
-background-color: grey;
-background: -webkit-linear-gradient(grey, white); 
-background: -o-linear-gradient(grey, white); 
-background: -moz-linear-gradient(grey, white);
-background: linear-gradient(grey, white);}
-#article{float :left;padding: 8px 20px;
-line-height: 20px;
-color: black;
-font-size: 14px;
-text-shadow: none;
-border: medium none;
-font-weight: 700;
-cursor: pointer;
-background-size:80px 60px;
-border:2px solid;
-border-radius:25px;
-background-color: grey;
-background: -webkit-linear-gradient(grey, white); 
-background: -o-linear-gradient(grey, white); 
-background: -moz-linear-gradient(grey, white);
-background: linear-gradient(grey, white);}
-#current_user{font-family: 'open sans';
-font-weight: 800;
-float:right;}
-#paginate{float: right;}
-.container{height:100%;background-color:rgba(83, 153, 175, 0.4);}
-body {height:100%;}
-html{height: 100%;}
-#fieldtitle{background-color:rgb(111, 159, 190);;
-height: 346px;
-width: 80%;
-margin-left: 167px}
+}
+#comment{float:right;}
+#commentemail{float:right;}
+#h1{text-align: center;}
+#review_description{width:50%;}
+.well{background-color: #E4EEF0;}
+.outercontainer{padding-top: 40px;}
+.innercontainer{padding:40px;}
+body{background-image: url(http://www.psdgraphics.com/file/light-blue-background.jpg);}
+.navbar{margin-bottom: 0px;}

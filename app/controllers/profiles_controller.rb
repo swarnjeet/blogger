@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
 	def show
-		@profile=User.find(current_user.id)
+		@profile=User.find(params[:id])
 	end
 	
 	def edit
@@ -13,11 +13,23 @@ class ProfilesController < ApplicationController
 	
  	@profile.email=params[:email]
 		  @profile.photo=params[:photo]
+@profile.dob=params[:dob]
+@profile.name=params[:name]
+@profile.address=params[:address]
 
 
-
-	@profile.save
-	redirect_to reviews_path
+	 respond_to do |format|
+     if @profile.save
+       format.html { redirect_to reviews_path, notice: 'profile was successfully updated.' }
+       format.json { render action: 'show', status: :created, location: @profile }
+     else
+       format.html { render action: 'edit' }
+       format.json { render json: @profile.errors, status: :unprocessable_entity }
+     end
+   
+                 
+    
+     end
  end
  private
  def profile_params

@@ -1,5 +1,7 @@
-
+<div class="container">
+<div class="index1">
 <%= form_for(@review) do |f| %>
+
   
   <p>
     <%= f.label :title %><br />
@@ -7,9 +9,24 @@
   </p>
   <p>
     <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.text_area :description ,size:"100x20" %>
   </p>
+  <% if @review.errors.any? %>
+   <div id="error_explanation">
+     <h2><%= pluralize(@review.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+   
+     <% @review.errors.full_messages.each do |msg| %>
+       <br><%= msg %>
+     <% end %>
+   
+   </div>
+ <% end %>
   <p>
     <%= f.submit %>
   </p>
 <% end %>
+
+
+</div>
+</div>

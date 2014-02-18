@@ -46,3 +46,4 @@ gem'will_paginate'
 
 # Use debugger
  gem 'debugger'
+gem 'bootstrap-datepicker-rails'

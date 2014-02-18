@@ -1,5 +1,6 @@
 
 <div class="container">
+<div class="index">
 <%= form_for(@review) do |f| %>
 <div id="fieldtitle">
 <div id="tt">
@@ -8,8 +9,10 @@
 </div>
 <div id="desc">
 
-<%= f.label :description%>
+<%= f.label :description%><br>
+<div id="text_description">
 <%= f.text_area :description ,size:"50x20";%>
+</div>
 </div>
 <%=f.hidden_field :user_id,:value =>current_user.id %>
 
@@ -28,10 +31,28 @@
       </ul>
     </div>
     <% end %>
+    
      <div class="actions">
-    <%= f.submit %>
+     
+    <%= f.submit   %>
     </div>
   </div>
   
   <% end %>
   </div>
+  </div>
+ 
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">new article is created</h3>
+   </div>
+   <div class="modal-body">
+    <p>successfully created new article</p>
+   </div>
+   <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+     </div>
+ </div>
+ 

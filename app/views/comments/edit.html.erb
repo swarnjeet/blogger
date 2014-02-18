@@ -1,3 +1,23 @@
+<div class="container">
+<div class="page-header">
+<h1>
+<%= @comment.review.title %>
+</h1>
+</div>
+<%= @comment.review.description %>
+<% @reviews=@comment.review %>
+<% @all_comment = @reviews.comments.all %>
+ <% @all_comment.each do|t| %>
+ 
+   <div class="well"> 
+
+     <%= t.comment %>
+     <div id="commentemail">
+      <%=t.user.email %>
+     </div>
+     </div>
+     <% end %>
+<div class="index1">
 <%= form_for(@comment) do |f| %>
   
   <p>
@@ -8,4 +28,7 @@
   <p>
     <%= f.submit %>
   </p>
+  <% link_to"back",reviews_path %>
 <% end %>
+</div>
+</div>

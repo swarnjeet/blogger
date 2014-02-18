@@ -1,59 +1,127 @@
-<div class="container">
-
-	<% @review.each do |t| %>
-<div class="index">
-
-<div id= "head">
-<%= t.title %>
+<div class="hero-unit">
+  <div id="myCarousel" class="carousel slide"style=" height:500px">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner"style="height:500px">
+    <div class="active item"><img src="http://www.hdwallpapers.in/walls/abstract_color_background_picture_8016-wide.jpg"></div>
+    <div class="item"><img src="http://www.twitterevolutions.com/bgs/tree-on-a-moonlight-twitter-background.jpg"></div>
+    <div class="item"><img src="http://www.dairygrazingapprenticeship.org/assets/sky_grass_background.jpg" ></div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>
-<div id="description">
+</div>
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span10">
+
+<% @var=0 %>
+<% @review.each do |t| %>
+
+	<% @var= @var+1 %>
+
+
+<div class="page-header">
+<h1>
+<a  class="1" data-toggle="collapse" data-target="#demo<%= @var%>" >
+<%= t.title %></a>
+</h1>
+</div>
+
+ 
+<div id="demo<%= @var %>" class="collapsein">  
+
 <%= t.description %>
+</div>
 <% if user_signed_in? %>
-
 <div id="comment">
-<%= link_to "comment",review_path(:id => t.id) %>
 
+<div class="btn btn-small btn">
+
+<%= link_to "comment",review_path(:id => t.id) %>
+</div>
 </div>
 <% end %>
 
 
 
-
+<div class="row-fluid">
+  <div class="span4">
 
 <% if user_signed_in? %>
 
 <% if t.user_id == (current_user.id).to_s %>
 <div id="delete">
+<div class="btn btn-small btn">
 <%= link_to "delete",review_path(:id => t.id), method: :delete %>
 </div>
+</div>
 <div id="edit">
+<div class="btn btn-small btn">
 <%= link_to "edit",edit_review_path(:id => t.id) %>
 </div>
+</div>
 <%end%>
 <%end%>
 </div>
+</div>
+
 
 <% @all_comment = t.comments.all %>
 <% @all_comment.each do|f| %>
-<div  id="comments">
+<div class="well">
 <%= f.comment %>
-<div id="user">
-<%=f.user.email %>
+<div id="commentemail">
+<%= link_to f.user.email,profile_path(f.user.id) %>
 </div>
 <% if user_signed_in? %>
 <% if f.user.id== current_user.id %>
+
+<div class="btn btn-small btn">
 <%= link_to "edit",edit_comment_path(:id => f.id) %>
+</div>
+
+<div class="btn btn-small btn">
 <%= link_to "delete",comment_path(:id => f.id) , method: :delete %>
+</div>
 <% end%>
 <% end %>
-
-</div>
-<% end %>
-
 </div>
 
 <% end %>
 
-<div id="paginate"><%= will_paginate @review %></div>
+
+
+
+<% end %>
 </div>
 
+    <div class="span2">
+    <% @user.each do |t| %>
+
+    <%= link_to image_tag(t.user_image(:thumb) ,:size =>"50x50"),userreview_path(:id => t.id) %>
+    <%end%>
+      <!--Body content-->
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="pagination pagination-right">
+<ul>
+<li>
+<%= will_paginate @review %>
+</li>
+</ul>
+</div>
